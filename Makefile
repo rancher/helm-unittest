@@ -32,6 +32,8 @@ dist:
 	tar -zcvf $(DIST)/helm-unittest-windows-amd64.tgz untt.exe README.md LICENSE plugin.yaml
 	CGO_ENABLED=0 GOOS=linux GOARCH=arm64 go build -o untt -ldflags $(LDFLAGS) ./main.go
 	tar -zcvf $(DIST)/helm-unittest-linux-arm64.tgz untt README.md LICENSE plugin.yaml
+	CGO_ENABLED=0 GOOS=linux GOARCH=arm go build -o untt -ldflags $(LDFLAGS) ./main.go
+	tar -zcvf $(DIST)/helm-unittest-linux-arm.tgz untt README.md LICENSE plugin.yaml
 
 .PHONY: bootstrap
 bootstrap:
