@@ -166,15 +166,12 @@ func (t *TestJob) releaseOption() *chartutil.ReleaseOptions {
 }
 
 // get chartutil.CapabilityOptions ready for render
-// Only supports APIVersions for now
+// Only supports APIVersions, KubeVersion for now
 func (t *TestJob) capabilityOption() *chartutil.Capabilities {
-	options := chartutil.Capabilities{APIVersions: chartutil.DefaultVersionSet}
-	if len(t.Capabilities.APIVersions) > 0 {
-		var arr []string
-		arr = append(t.Capabilities.APIVersions, "v1")
-		options.APIVersions = chartutil.NewVersionSet(arr...)
+	return &chartutil.Capabilities{
+		APIVersions: chartutil.DefaultVersionSet,
+		KubeVersion: chartutil.DefaultKubeVersion,
 	}
-	return &options
 }
 
 // parse rendered manifest if it's yaml
