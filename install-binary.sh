@@ -7,7 +7,7 @@ PROJECT_NAME="helm-unittest"
 
 downloadFile() {
   # Always use version from plugin.yaml for the download url
-  DOWNLOAD_URL="https://github.com/rancher/helm-unittest/releases/download/$CATTLE_HELM_UNITTEST_VERSION/$PROJECT_NAME-linux-$ARCH.tgz"
+  DOWNLOAD_URL="https://github.com/rancher/helm-unittest/releases/download/$CATTLE_HELM_UNITTEST_VERSION/$PROJECT_NAME-${OS:-linux}-$ARCH.tgz"
   PLUGIN_TMP_FILE="/tmp/$PROJECT_NAME.tgz"
   echo "Downloading $DOWNLOAD_URL"
   curl -L "$DOWNLOAD_URL" -o "$PLUGIN_TMP_FILE"
